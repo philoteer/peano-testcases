@@ -1,0 +1,19 @@
+scoped_mode.cc:11:10: error: no type named 'scoped_mode' in namespace 'aie'
+   11 |     aie::scoped_mode rounding{aie::rounding_mode::positive_inf};
+      |     ~~~~~^
+scoped_mode.cc:12:10: error: no type named 'scoped_mode' in namespace 'aie'
+   12 |     aie::scoped_mode saturation{aie::saturation_mode::none};
+      |     ~~~~~^
+scoped_mode.cc:17:10: error: no type named 'scoped_mode' in namespace 'aie'
+   17 |     aie::scoped_mode rounding{aie::rounding_mode::symmetric_inf};
+      |     ~~~~~^
+scoped_mode.cc:18:10: error: no type named 'scoped_mode' in namespace 'aie'
+   18 |     aie::scoped_mode saturation{aie::saturation_mode::saturate};
+      |     ~~~~~^
+scoped_mode.cc:23:10: error: no type named 'scoped_mode' in namespace 'aie'
+   23 |     aie::scoped_mode rounding{aie::rounding_mode::symmetric_floor};
+      |     ~~~~~^
+scoped_mode.cc:24:10: error: no type named 'scoped_mode' in namespace 'aie'
+   24 |     aie::scoped_mode saturation{aie::saturation_mode::saturate};
+      |     ~~~~~^
+6 errors generated.

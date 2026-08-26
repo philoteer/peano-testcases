@@ -1,0 +1,111 @@
+In file included from sliding_cacc64.cc:3:
+In file included from /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/aie.hpp:41:
+In file included from /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/abs.hpp:63:
+In file included from /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/abs.hpp:10:
+In file included from /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../broadcast.hpp:13:
+In file included from /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../accum.hpp:26:
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../detail/aie2/accum.hpp:83:61: error: no matching conversion for functional-style cast from '__attribute__((__vector_size__(16 * sizeof(__acc64)))) __acc64 const' (vector of 16 '__acc64' values) to 'v8cacc64'
+   83 |         if constexpr (DstElems == 8)                 return v8cacc64(from);
+      |                                                             ^~~~~~~~~~~~~~
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../detail/aie2/accum.hpp:287:15: note: in instantiation of function template specialization 'aie::detail::accum_cast_helper<aie::detail::AccumClass::CInt, 64U, 8U, __attribute__((__vector_size__(16 * sizeof(__acc64)))) __acc64 const &>' requested here
+  287 |         ret = accum_cast_helper<DstClass, RealDstSize, DstElems>(data);
+      |               ^
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/sliding_mul_acc64.hpp:835:16: note: in instantiation of function template specialization 'aie::detail::combine_into_complex<aie::accum<__acc64, 16>>' requested here
+  835 |         return combine_into_complex(acc_re, acc_im).template extract<Lanes>(0);
+      |                ^
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/mul.hpp:882:36: note: in instantiation of function template specialization 'aie::detail::sliding_mul_bits_impl<16, 16, 1, 1, 1, 64, 32, 32, cint16, cint16>::run<aie::detail::MulMacroOp::Mul, 16U, 32U>' requested here
+  882 |         return impl_type::template run<Op>(coeff, coeff_start, coeff_sign, data, data_start, data_sign, acc...);
+      |                                    ^
+/home/piloteer/.local/lib/python3.12/site-packages/llvm-aie/lib/clang/20/include/aiev2/aiev2_aie_api_compat.h:42:8: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from '__attribute__((__vector_size__(16 * sizeof(__acc64)))) __acc64 const' (vector of 16 '__acc64' values) to 'const v8cacc64' for 1st argument
+   42 | struct v8cacc64 {};
+      |        ^~~~~~~~
+/home/piloteer/.local/lib/python3.12/site-packages/llvm-aie/lib/clang/20/include/aiev2/aiev2_aie_api_compat.h:42:8: note: candidate constructor (the implicit move constructor) not viable: no known conversion from '__attribute__((__vector_size__(16 * sizeof(__acc64)))) __acc64 const' (vector of 16 '__acc64' values) to 'v8cacc64' for 1st argument
+   42 | struct v8cacc64 {};
+      |        ^~~~~~~~
+/home/piloteer/.local/lib/python3.12/site-packages/llvm-aie/lib/clang/20/include/aiev2/aiev2_aie_api_compat.h:42:8: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 1 was provided
+In file included from sliding_cacc64.cc:3:
+In file included from /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/aie.hpp:41:
+In file included from /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/abs.hpp:63:
+In file included from /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/abs.hpp:10:
+In file included from /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../broadcast.hpp:13:
+In file included from /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../accum.hpp:26:
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../detail/aie2/accum.hpp:280:72: warning: division by zero is undefined [-Wdivision-by-zero]
+  280 |                                                                  Elems / (     DstSize / value_bits());
+      |                                                                        ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../accum.hpp:142:41: note: in instantiation of function template specialization 'aie::detail::accum_base<aie::detail::AccumClass::CInt, 64, 16>::cast_to<__acc64>' requested here
+  142 |         auto cast = base_type::template cast_to<DstTag>();
+      |                                         ^
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/mul.hpp:1087:69: note: in instantiation of function template specialization 'aie::accum<cacc64, 16>::cast_to<__acc64>' requested here
+ 1087 |     return interleave_unzip<result_tag, 2 * elems>::run(in.template cast_to<result_tag>(), 1);
+      |                                                                     ^
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/sliding_mul_acc64.hpp:785:68: note: in instantiation of function template specialization 'aie::detail::unzip_complex<aie::accum<cacc64, 16>>' requested here
+  785 |             std::tie(acc_re, acc_im) = grow_all<accum_int::size()>(unzip_complex(acc)...);
+      |                                                                    ^
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/mul.hpp:882:36: note: in instantiation of function template specialization 'aie::detail::sliding_mul_bits_impl<16, 16, 1, 1, 1, 64, 32, 32, cint16, cint16>::run<aie::detail::MulMacroOp::Add_Mul, 16U, 32U, aie::accum<cacc64, 16>>' requested here
+  882 |         return impl_type::template run<Op>(coeff, coeff_start, coeff_sign, data, data_start, data_sign, acc...);
+      |                                    ^
+In file included from sliding_cacc64.cc:3:
+In file included from /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/aie.hpp:41:
+In file included from /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/abs.hpp:63:
+In file included from /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/abs.hpp:10:
+In file included from /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../broadcast.hpp:13:
+In file included from /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../accum.hpp:26:
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../detail/aie2/accum.hpp:71:120: error: cannot convert 'v8cacc64' to 'v16acc64' (vector of 16 'acc64' values) without a conversion operator
+   71 |         if constexpr (Bits == 64 && DstElems >= 32)  return utils::make_array<Blocks>([](auto f) __aie_inline { return v16acc64(f); }, from);
+      |                                                                                                                        ^~~~~~~~~~~
+/home/piloteer/.local/lib/python3.12/site-packages/llvm-aie/bin/../include/c++/v1/__type_traits/invoke.h:176:10: note: in instantiation of function template specialization 'aie::detail::accum_cast_helper(const std::array<v8cacc64, 2> &)::(anonymous class)::operator()<v8cacc64>' requested here
+  176 | decltype(std::declval<_Fp>()(std::declval<_Args>()...))
+      |          ^
+/home/piloteer/.local/lib/python3.12/site-packages/llvm-aie/bin/../include/c++/v1/__type_traits/invoke.h:186:19: note: while substituting deduced template arguments into function template '__invoke' [with _Fp = (lambda at /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../detail/aie2/accum.hpp:71:87), _Args = <v8cacc64>]
+  186 |   static decltype(std::__invoke(std::declval<_XFp>(), std::declval<_XArgs>()...)) __try_call(int);
+      |                   ^
+/home/piloteer/.local/lib/python3.12/site-packages/llvm-aie/bin/../include/c++/v1/__type_traits/invoke.h:192:44: note: while substituting deduced template arguments into function template '__try_call' [with _XFp = (lambda at /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../detail/aie2/accum.hpp:71:87), _XArgs = (no value)]
+  192 |   using _Result _LIBCPP_NODEBUG = decltype(__try_call<_Fp, _Args...>(0));
+      |                                            ^
+/home/piloteer/.local/lib/python3.12/site-packages/llvm-aie/bin/../include/c++/v1/__type_traits/invoke.h:256:38: note: in instantiation of template class 'std::__invokable_r<void, (lambda at /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../detail/aie2/accum.hpp:71:87), v8cacc64>' requested here
+  256 | inline const bool __is_invocable_v = __is_invocable<_Func, _Args...>::value;
+      |                                      ^
+/home/piloteer/.local/lib/python3.12/site-packages/llvm-aie/bin/../include/c++/v1/__type_traits/invoke.h:266:17: note: in instantiation of variable template specialization 'std::__is_invocable_v<(lambda at /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../detail/aie2/accum.hpp:71:87), v8cacc64>' requested here
+  266 |     : enable_if<__is_invocable_v<_Func, _Args...>, typename __invokable_r<void, _Func, _Args...>::_Result> {};
+      |                 ^
+/home/piloteer/.local/lib/python3.12/site-packages/llvm-aie/bin/../include/c++/v1/__type_traits/invoke.h:311:72: note: (skipping 3 contexts in backtrace; use -ftemplate-backtrace-limit=0 to see all)
+  311 | struct _LIBCPP_TEMPLATE_VIS _LIBCPP_NO_SPECIALIZATIONS invoke_result : __invoke_result<_Fn, _Args...> {};
+      |                                                                        ^
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/../detail/utils.hpp:652:12: note: while substituting deduced template arguments into function template 'make_array_helper' [with Callable = (lambda at /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../detail/aie2/accum.hpp:71:87), Idx = <0, 1>, Args = <std::array<v8cacc64, 2>>]
+  652 |     return make_array_helper(std::forward<Callable&&>(callable), seq{}, std::forward<Args&&>(args)...);
+      |            ^
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../detail/aie2/accum.hpp:71:68: note: in instantiation of function template specialization 'aie::detail::utils::make_array<2U, (lambda at /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../detail/aie2/accum.hpp:71:87), std::array<v8cacc64, 2>>' requested here
+   71 |         if constexpr (Bits == 64 && DstElems >= 32)  return utils::make_array<Blocks>([](auto f) __aie_inline { return v16acc64(f); }, from);
+      |                                                                    ^
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../detail/aie2/accum.hpp:287:15: note: in instantiation of function template specialization 'aie::detail::accum_cast_helper<aie::detail::AccumClass::Int, 64U, 32U, const std::array<v8cacc64, 2> &>' requested here
+  287 |         ret = accum_cast_helper<DstClass, RealDstSize, DstElems>(data);
+      |               ^
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/sliding_mul_acc64.hpp:785:68: note: in instantiation of function template specialization 'aie::detail::unzip_complex<aie::accum<cacc64, 16>>' requested here
+  785 |             std::tie(acc_re, acc_im) = grow_all<accum_int::size()>(unzip_complex(acc)...);
+      |                                                                    ^
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/mul.hpp:882:36: note: in instantiation of function template specialization 'aie::detail::sliding_mul_bits_impl<16, 16, 1, 1, 1, 64, 32, 32, cint16, cint16>::run<aie::detail::MulMacroOp::Add_Mul, 16U, 32U, aie::accum<cacc64, 16>>' requested here
+  882 |         return impl_type::template run<Op>(coeff, coeff_start, coeff_sign, data, data_start, data_sign, acc...);
+      |                                    ^
+In file included from sliding_cacc64.cc:3:
+In file included from /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/aie.hpp:41:
+In file included from /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/abs.hpp:13:
+In file included from /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/../vector.hpp:14:
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/../detail/utils.hpp:652:12: error: no matching function for call to 'make_array_helper'
+  652 |     return make_array_helper(std::forward<Callable&&>(callable), seq{}, std::forward<Args&&>(args)...);
+      |            ^~~~~~~~~~~~~~~~~
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../detail/aie2/accum.hpp:71:68: note: in instantiation of function template specialization 'aie::detail::utils::make_array<2U, (lambda at /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../detail/aie2/accum.hpp:71:87), std::array<v8cacc64, 2>>' requested here
+   71 |         if constexpr (Bits == 64 && DstElems >= 32)  return utils::make_array<Blocks>([](auto f) __aie_inline { return v16acc64(f); }, from);
+      |                                                                    ^
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../detail/aie2/accum.hpp:287:15: note: in instantiation of function template specialization 'aie::detail::accum_cast_helper<aie::detail::AccumClass::Int, 64U, 32U, const std::array<v8cacc64, 2> &>' requested here
+  287 |         ret = accum_cast_helper<DstClass, RealDstSize, DstElems>(data);
+      |               ^
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/sliding_mul_acc64.hpp:785:68: note: in instantiation of function template specialization 'aie::detail::unzip_complex<aie::accum<cacc64, 16>>' requested here
+  785 |             std::tie(acc_re, acc_im) = grow_all<accum_int::size()>(unzip_complex(acc)...);
+      |                                                                    ^
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/mul.hpp:882:36: note: in instantiation of function template specialization 'aie::detail::sliding_mul_bits_impl<16, 16, 1, 1, 1, 64, 32, 32, cint16, cint16>::run<aie::detail::MulMacroOp::Add_Mul, 16U, 32U, aie::accum<cacc64, 16>>' requested here
+  882 |         return impl_type::template run<Op>(coeff, coeff_start, coeff_sign, data, data_start, data_sign, acc...);
+      |                                    ^
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/../detail/utils.hpp:641:6: note: candidate template ignored: substitution failure [with Callable = (lambda at /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../detail/aie2/accum.hpp:71:87), Idx = <0, 1>, Args = <std::array<v8cacc64, 2>>]: no type named 'type' in 'std::invoke_result<(lambda at /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../detail/aie2/accum.hpp:71:87), v8cacc64>'
+  641 | auto make_array_helper(Callable&& callable, std::index_sequence<Idx...>, Args&&... args)
+      |      ^
+1 warning and 3 errors generated.

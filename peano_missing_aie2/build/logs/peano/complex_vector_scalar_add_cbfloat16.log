@@ -1,0 +1,14 @@
+In file included from complex_vector_scalar_add_cbfloat16.cc:3:
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/aie.hpp:3629:30: error: invalid operands to binary expression ('cbfloat16' and 'cbfloat16')
+ 3629 |         if (chess_manifest(a == T(0, 0)))
+      |                            ~ ^  ~~~~~~~
+/home/piloteer/.local/lib/python3.12/site-packages/llvm-aie/lib/clang/20/include/aiebase_chess.h:29:49: note: expanded from macro 'chess_manifest'
+   29 | #define chess_manifest(x) (__builtin_constant_p(x) && (!!(x)))
+      |                                                 ^
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/aie.hpp:3691:9: note: in instantiation of function template specialization 'aie::is_ct_elem_zero<cbfloat16, cbfloat16>' requested here
+ 3691 |     if (is_ct_elem_zero<T>(a))
+      |         ^
+complex_vector_scalar_add_cbfloat16.cc:12:29: note: in instantiation of function template specialization 'aie::add<aie::vector<cbfloat16, 16>, cbfloat16>' requested here
+   12 |   aie::store_v(output, aie::add(values, offset));
+      |                             ^
+1 error generated.

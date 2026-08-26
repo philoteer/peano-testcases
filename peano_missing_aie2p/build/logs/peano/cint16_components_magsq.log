@@ -1,0 +1,28 @@
+In file included from cint16_components_magsq.cc:3:
+In file included from /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/aie.hpp:41:
+In file included from /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/abs.hpp:63:
+In file included from /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/abs.hpp:10:
+In file included from /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../broadcast.hpp:13:
+In file included from /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../accum.hpp:30:
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../detail/aie2p/accum.hpp:1018:120: warning: 'srs_to_v16int32' is deprecated: Function 'srs_to_v16int32 ()' is deprecated. Please use 'to_v16int32 ()' instead. [-Wdeprecated-declarations]
+ 1018 |                     return [](const accum_base<Class, MinBits, 16> &acc, int shift, bool sign) __aie_inline { return ::srs_to_v16int32(acc, shift, sign);  };
+      |                                                                                                                        ^
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../detail/aie2p/accum.hpp:1018:109: note: while substituting into a lambda expression here
+ 1018 |                     return [](const accum_base<Class, MinBits, 16> &acc, int shift, bool sign) __aie_inline { return ::srs_to_v16int32(acc, shift, sign);  };
+      |                                                                                                             ^
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../detail/aie2p/accum.hpp:635:37: note: in instantiation of function template specialization 'aie::detail::accum_base<aie::detail::AccumClass::Int, 48, 16>::get_srs<int>' requested here
+  635 |             constexpr auto srs_fn = get_srs<T>();
+      |                                     ^
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../detail/aie2p/accum.hpp:666:16: note: in instantiation of function template specialization 'aie::detail::accum_base<aie::detail::AccumClass::Int, 48, 16>::to_vector_sign<int>' requested here
+  666 |         return to_vector_sign<T>(is_signed_v<T>, shift);
+      |                ^
+/home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../accum.hpp:394:36: note: in instantiation of function template specialization 'aie::detail::accum_base<aie::detail::AccumClass::Int, 48, 16>::to_vector<int>' requested here
+  394 |         return base_type::template to_vector<T>(shift);
+      |                                    ^
+cint16_components_magsq.cc:15:34: note: in instantiation of function template specialization 'aie::accum<long long, 16>::to_vector<int>' requested here
+   15 |   aie::store_v(output, magnitude.to_vector<int32_t>(7));
+      |                                  ^
+/home/piloteer/.local/lib/python3.12/site-packages/llvm-aie/lib/clang/20/include/aie2p/aie2p_srs.h:839:3: note: 'srs_to_v16int32' has been explicitly marked deprecated here
+  839 | [[deprecated("Function 'srs_to_v16int32 ()' is deprecated. Please use "
+      |   ^
+1 warning generated.
