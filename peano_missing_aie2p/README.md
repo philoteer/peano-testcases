@@ -31,25 +31,17 @@ runtime test failure.
 | `threshold_accum_mac_msc.cc` | Threshold `acc64` multiply, MAC, MSC, and add sequence |
 | `fft_r4_stage.cc` | 64-point radix-4 FFT stage primitive |
 | `libm_float_functions.cc` | Scalar `atan2f`, `cosf`, `sinf`, and `floorf` |
-| `cbfloat16_scalar_fields.cc` | Scalar `cbfloat16.real` and `.imag` access |
-| `cbfloat16_vector_api.cc` | `cbfloat16` vector load, scalar add, and store |
-| `cbfloat16_accumulator.cc` | `caccfloat` accumulator availability |
-| `cbfloat16_vector_conversion.cc` | `cint16` to `cbfloat16` vector conversion |
-| `cbfloat16_cint16_conversion.cc` | Scalar complex bfloat16/fixed-point conversion |
-| `cbfloat16_cint32_conversion.cc` | Scalar complex bfloat16/32-bit conversion |
 
-The `cbfloat16` cases correspond to the frequency source, frequency shifter,
-argument, multikernel-chain, and conversion examples. The FFT, complex-vector,
-unaligned-I/O, and sliding cases are deliberately small enough to expose
-current XDNA2 backend failures without the unrelated state and metadata code
-from the complete kernels. The two threshold probes split the arithmetic path
-into controls; the full threshold kernel currently reaches the backend failure
-covered by `complex_vector_components.cc`.
+The FFT, complex-vector, unaligned-I/O, and sliding cases are deliberately small
+enough to expose current XDNA2 backend failures without the unrelated state and
+metadata code from the complete kernels. The two threshold probes split the
+arithmetic path into controls; the full threshold kernel currently reaches the
+backend failure covered by `complex_vector_components.cc`.
 
 ## Usage
 
-From this directory, `make` runs every Peano probe and continues after each
-failure:
+From this directory, the default `aie2p` target runs every Peano probe and
+continues after each failure:
 
 ```sh
 make
