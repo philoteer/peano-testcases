@@ -3,7 +3,6 @@
 #include <aie_api/aie.hpp>
 #include <aie_api/aie_types.hpp>
 
-// Scoped rounding and saturation modes used throughout the synchronizers.
 extern "C" void scoped_mode_probe(const int16_t *__restrict input,
                                    int16_t *__restrict output) {
   const auto values = aie::load_v<16>(input);

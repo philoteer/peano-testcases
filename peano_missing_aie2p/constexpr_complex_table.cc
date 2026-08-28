@@ -3,7 +3,6 @@
 #include <aie_api/aie.hpp>
 #include <aie_api/aie_types.hpp>
 
-// Static constexpr cint16 tables are used by sync_long and FFT code.
 alignas(32) static constexpr cint16 coefficient_table[16] = {
     {22721, 0},   {-745, 17496}, {5780, 16163},  {14080, -12039},
     {3070, -4055}, {8698, 12753}, {-16741, 8023}, {-5572, 15439},

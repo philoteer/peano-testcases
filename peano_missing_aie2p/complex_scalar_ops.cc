@@ -3,7 +3,6 @@
 #include <aie_api/aie.hpp>
 #include <aie_api/aie_types.hpp>
 
-// Scalar complex expressions used by pilot and correlation bookkeeping.
 extern "C" void complex_scalar_ops(const cint32 *__restrict input,
                                     cint32 *__restrict output) {
   const cint32 first = input[0];

@@ -19,8 +19,8 @@ In file included from /home/piloteer/.local/lib/python3.12/site-packages/mlir_ai
 /home/piloteer/.local/lib/python3.12/site-packages/mlir_aie/include/aie_api/detail/aie2/../../accum.hpp:394:36: note: in instantiation of function template specialization 'aie::detail::accum_base<aie::detail::AccumClass::Int, 64, 16>::to_vector<int>' requested here
   394 |         return base_type::template to_vector<T>(shift);
       |                                    ^
-portable_vector.cc:11:32: note: in instantiation of function template specialization 'aie::accum<__acc64, 16>::to_vector<int>' requested here
-   11 |   aie::store_v(output, doubled.to_vector<int32_t>(0));
+portable_vector.cc:10:32: note: in instantiation of function template specialization 'aie::accum<__acc64, 16>::to_vector<int>' requested here
+   10 |   aie::store_v(output, doubled.to_vector<int32_t>(0));
       |                                ^
 /home/piloteer/.local/lib/python3.12/site-packages/llvm-aie/lib/clang/20/include/aie2p/aie2p_srs.h:839:3: note: 'srs_to_v16int32' has been explicitly marked deprecated here
   839 | [[deprecated("Function 'srs_to_v16int32 ()' is deprecated. Please use "

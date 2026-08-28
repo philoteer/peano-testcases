@@ -3,7 +3,6 @@
 #include <aie_api/aie.hpp>
 #include <aie_api/aie_types.hpp>
 
-// Complex fixed-point multiply used by the synchronizer oscillators.
 extern "C" void cint16_vector_accum(const cint16 *__restrict input,
                                      const cint16 *__restrict factor,
                                      cint32 *__restrict output) {

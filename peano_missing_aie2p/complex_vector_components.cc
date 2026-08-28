@@ -3,7 +3,6 @@
 #include <aie_api/aie.hpp>
 #include <aie_api/aie_types.hpp>
 
-// Component extraction used by magnitude and threshold kernels.
 extern "C" void complex_vector_components(const cint32 *__restrict input,
                                            int32_t *__restrict real_output,
                                            int32_t *__restrict imag_output) {

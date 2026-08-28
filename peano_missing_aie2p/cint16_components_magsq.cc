@@ -3,7 +3,6 @@
 #include <aie_api/aie.hpp>
 #include <aie_api/aie_types.hpp>
 
-// Passing complex fixed-point baseline used by magsq_avg_cf.
 extern "C" void cint16_components_magsq(const cint16 *__restrict input,
                                           int32_t *__restrict output) {
   const auto values = aie::load_v<16>(input);

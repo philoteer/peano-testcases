@@ -3,7 +3,6 @@
 #include <aie_api/aie.hpp>
 #include <aie_api/aie_types.hpp>
 
-// Control case using ordinary XDNA2 integer vector and accumulator operations.
 extern "C" void portable_vector(const int32_t *__restrict input,
                                  int32_t *__restrict output) {
   const auto values = aie::load_v<16>(input);

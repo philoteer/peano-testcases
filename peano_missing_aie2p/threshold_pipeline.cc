@@ -3,7 +3,6 @@
 #include <aie_api/aie.hpp>
 #include <aie_api/aie_types.hpp>
 
-// Accumulator narrowing, comparison, and scalar selection used by threshold_cf.
 extern "C" void threshold_pipeline(const int32_t *__restrict input,
                                     int8_t *__restrict output) {
   const auto values = aie::load_v<16>(input);

@@ -3,7 +3,6 @@
 #include <aie_api/aie.hpp>
 #include <aie_api/aie_types.hpp>
 
-// Unsigned phase arithmetic used while constructing the synchronizer ramp.
 extern "C" void phase_u32_acc64(const uint32_t *__restrict input,
                                  uint32_t *__restrict output) {
   const auto values = aie::load_v<16>(input);
