@@ -53,6 +53,7 @@ case "$compiler" in
       -Wno-missing-template-arg-list-after-template-kw
       -DNDEBUG
       "-I${MLIR_AIE_DIR}/include"
+      -D__AIE_API_AIE_ADF_HPP__
     )
     ;;
   *)

@@ -9,12 +9,12 @@ SOURCES := \
 	portable_vector.cc \
 	complex_scalar_ops.cc \
 	complex_vector_scalar_add.cc \
-	complex_vector_scalar_add_cbfloat16.cc \
 	constexpr_complex_table.cc \
 	cacc64_cast.cc \
-	libm_float_functions.cc \
-	scoped_mode.cc \
-	sliding_cacc64.cc
+	cacc48_probe.cc \
+	fft_probe.cc \
+	unaligned_cint16_probe.cc \
+	libm_float_functions.cc
 
 BUILD_DIR ?= build
 

@@ -20,22 +20,14 @@ features.
 | Source | Existing-kernel construct covered |
 | --- | --- |
 | `portable_vector.cc` | Control case using ordinary `int32` vector multiply and narrowing |
-| `scoped_mode.cc` | `aie::scoped_mode` for all rounding and saturation modes used by the kernels |
 | `complex_scalar_ops.cc` | Unary negation, scalar multiplication, and addition of `cint32` values |
-| `complex_vector_scalar_add.cc` | `aie::add(vector<cint32>, cint32)` |
-| `complex_vector_scalar_add_cbfloat16.cc` | `aie::add(vector<cbfloat16>, cbfloat16)` |
-| `sliding_cacc64.cc` | `aie::sliding_mul` and `aie::sliding_mac` with `cacc64` |
+| `complex_vector_scalar_add.cc` | `aie::load_v` for complex `cint32` vectors (single `load_v` probe; other complex loads removed) |
 | `cacc64_cast.cc` | `cacc64` to real `acc64` extraction and vector casting |
-| `constexpr_complex_table.cc` | `static constexpr cint16` tables used for FIR/FFT coefficients |
+| `cacc48_probe.cc` | `cacc48` 48-bit complex accumulator (`aie::zeros<cacc48>`) |
+| `fft_probe.cc` | `aie::fft_dit_r4_stage` |
+| `unaligned_cint16_probe.cc` | `aie::load_unaligned_v`/`store_unaligned_v` for `cint16`  |
+| `constexpr_complex_table.cc` | `static constexpr cint16` tables used for FIR/FFT coefficients (scalar copy, no `load_v`) |
 | `libm_float_functions.cc` | `atan2f`, `cosf`, `sinf`, and `floorf` in scalar kernel code |
-
-The source examples are based on `kernel/autocorr_cf.cc`,
-`kernel/sync_long_cf.cc`, `kernel/frame_equalizer_preprocess.cc`,
-`kernel/frame_equalizer_equalize.cc`,
-`cpp_cbfloat16_multikernel_chain_chesscc/stage_add_const.cc`, and the scalar
-complex math/frequency-source examples. FFT, LUT approximation, and ordinary
-vector/accumulator operations are intentionally not included because they
-already compile with the Peano toolchain in this checkout.
 
 ## Usage
 

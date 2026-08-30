@@ -11,5 +11,7 @@ alignas(32) static constexpr cint16 coefficient_table[16] = {
 };
 
 extern "C" void constexpr_complex_table(cint16 *__restrict output) {
-  aie::store_v(output, aie::load_v<16>(coefficient_table));
+  // Use scalar copy to isolate the `static constexpr` failure from the
+  // complex `load_v` probe (kept in complex_vector_scalar_add.cc).
+  for (int i = 0; i < 16; ++i) output[i] = coefficient_table[i];
 }
