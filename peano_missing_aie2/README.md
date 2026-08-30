@@ -24,7 +24,6 @@ features.
 | `complex_vector_scalar_add.cc` | `aie::load_v` for complex `cint32` vectors (single `load_v` probe; other complex loads removed) |
 | `cacc64_cast.cc` | `cacc64` to real `acc64` extraction and vector casting |
 | `cacc48_probe.cc` | `cacc48` 48-bit complex accumulator (`aie::zeros<cacc48>`) |
-| `fft_probe.cc` | `aie::fft_dit_r4_stage` |
 | `unaligned_cint16_probe.cc` | `aie::load_unaligned_v`/`store_unaligned_v` for `cint16`  |
 | `constexpr_complex_table.cc` | `static constexpr cint16` tables used for FIR/FFT coefficients (scalar copy, no `load_v`) |
 | `libm_float_functions.cc` | `atan2f`, `cosf`, `sinf`, and `floorf` in scalar kernel code |

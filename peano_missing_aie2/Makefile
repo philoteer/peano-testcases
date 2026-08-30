@@ -12,7 +12,6 @@ SOURCES := \
 	constexpr_complex_table.cc \
 	cacc64_cast.cc \
 	cacc48_probe.cc \
-	fft_probe.cc \
 	unaligned_cint16_probe.cc \
 	libm_float_functions.cc
 
